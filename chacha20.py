@@ -15,7 +15,7 @@ def initialState(key, pos, nonce):
 
 # Cyclic shift left
 def roll(x, n):
-    return (x << n) % (2 << 31) + (x >> (32 - n))
+    return (x << n) % N + (x >> (32 - n))
 
 
 
