@@ -51,9 +51,16 @@ c = [
 
 s = ""
 
-for x in c:
-    for i in range(128):
-        if pow(i, e, N) == x:
-            s += chr(i)
 
-print(s)
+def crack_char(char, cache={}):
+    if char in cache:
+        return cache[char]
+
+    for i in range(128):
+        if pow(i, e, N) == char:
+            cache[char] = chr(i)
+            return chr(i)
+
+
+for char in c:
+    print(crack_char(char), flush=True, end="")
